@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    background-color: #111;
+}
+h1 {
+    font-family: monospace;
+    font-size: 2.9em;
+    font-weight: 900;
+}
+span {
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 2.5em;
+    font-weight: 100;
+}
+.time {
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 2.5em;
+    font-weight: 100;
+    opacity: .7;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    min-width: 700px;
+    margin: 0 auto;
+}
+select {
+    margin: 0 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 4px;
+    border-radius: 15px;
+    border: none;
+    transition: all 0.1s;
+    opacity: .89;
+    font-family: monospace;
+}
+.calendar-header {
+    display: flex;
+    align-items: flex-end;
+}
+.year {
+    margin: 0 0 0 20px;
+}
+select:hover {
+    opacity: 1;
+}
+.main {
+    background-color: #111;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+.main>.header {
+    height: 10%;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+.select {
+    display: flex;
+}
+.btns {
+    color: #fff;
+    font-family: monospace;
+    text-transform: lowercase;
+    height: 25px;
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btns>div:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+.btns>div {
+    border-radius: 3px;
+    transition: all .1s;
+    opacity: .89;
+    background-color: #333;
+    height: 100%;
+    font-weight: 100;
+    border-radius: 15px;
+}
+.prev,
+.next {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    border: 1px solid #000;
+}
+.prev:hover {
+    color: #fff;
+}
+.next:hover {
+    color: #fff;
+}
+.today {
+    font-size: 1.2em;
+    border: 1px solid #000;
+    width: 50%;
+    margin: 0 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main>.table {
+    width: 100%;
+    height: 90%;
+    background-color: #444;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+table {
+    height: 100%;
+    border-radius: 5px;
+}
+.days {
+    height: 5%;
+    width: 100%;
+    border-bottom: 1px solid #777;
+    color: #fff;
+    font-family: monospace;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+.days>th {
+    width: calc(100% / 7);
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 5px 0;
+    padding: 0 10px 0 0;
+}
+tr{
+    display: flex;
+    width: 100%;
+    height: calc(95% / 6);
+    border-bottom: 1px solid #777;
+}
+td {
+    width: calc(100% / 7);
+    display: flex;
+    justify-content: flex-end;
+    color: #fff;
+    font-size: 1.6em;
+    border-right: 1px solid #777;
+    font-family: monospace;
+    transition: all .1s;
+    padding: 10px 10px 0 0;
+}
+td:hover {
+    cursor: pointer;
+    background-color: #555;
+}
+.weekend:hover {
+    cursor: pointer;
+    background-color: #777;
+}
+.weekend {
+    background-color: #999;
+    opacity: .8;
+}
+.note {
+    color:#000;
+}
+.comment {
+    width: auto;
+    height: auto;
+    display: block;
+    font-size: 0.7em;
+    color: rgb(178, 226, 226);
+}
