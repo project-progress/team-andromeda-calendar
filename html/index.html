@@ -8,10 +8,21 @@
     </title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
+<div class="popup" id="popup">
+    <div class="popupHeader">
+        <span id="cs">&#10006;</span>
+    </div>
+    <div class="popupBody">
+        <input type="text" placeholder="Node name..." id="noden" class="noden">
+        <input type="text" placeholder="" id="noded" class="noded">
+        <div class="save" id="save">Save</div>
+    </div>
+</div>
 <body class="light">
     <div class="calendar">
         <div class="calendar-header">
             <span class="month-picker" id="month-picker">February</span>
+            <div id="today" class="today">Today</div>
             <div class="year-picker">
                 <span class="year-change" id="prev-year">
                     <pre><</pre>
