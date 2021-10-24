@@ -38,7 +38,7 @@ generateCalendar = (month, year) => {
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             let key = `${year}_${month}_${i - first_day.getDay() + 1}`
-            let title = getCookie(key + '_title')
+            let title =localStorage.getItem(key + '_title')
             if (title) {
                 day.classList.add('calendar-day-cookie')
             }
@@ -102,8 +102,8 @@ function popup(e) {
     if (e) {
         e.classList.add("select")
         let key = e.getAttribute('key')
-        let title = getCookie(key + '_title')
-        let desc = getCookie(key + '_desc')
+        let title = localStorage.getItem(key + '_title')
+        let desc = localStorage.getItem(key + '_desc')
         let inn = document.querySelector("#noden")
         let idd = document.querySelector("#noded")
         inn.value = title
@@ -111,7 +111,7 @@ function popup(e) {
     } else {
         let select = document.querySelector(".select")
         let key = select.getAttribute('key')
-        let title = getCookie(key + '_title')
+        let title = localStorage.getItem(key + '_title')
         if (title) {
             select.classList.add("calendar-day-cookie")
         }
@@ -129,29 +129,9 @@ save.addEventListener("click", () => {
     let idd = document.querySelector("#noded")
     let select = document.querySelector(".select")
     key = select.getAttribute('key')
-    setCookie(key + "_title",inn.value,7)
-    setCookie(key + '_desc',idd.value,7)
+    localStorage.setItem(key + "_title",inn.value)
+    localStorage.setItem(key + '_desc',idd.value)
     popup()
 })
-function setCookie(name,value,days) {
-    let expires = "";
-    if (days) {
-        let date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-function getCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    for(let i=0;i < ca.length;i++) {
-        let c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-}
-function eraseCookie(name) {   
-    document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+localStorage.setItem(key + "_title",inn.value);
+document.getElementById("result").innerHTML = localStorage.getItem(key + '_title');
