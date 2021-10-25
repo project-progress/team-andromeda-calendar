@@ -38,7 +38,7 @@ generateCalendar = (month, year) => {
         let day = document.createElement('div')
         if (i >= first_day.getDay()) {
             let key = `${year}_${month}_${i - first_day.getDay() + 1}`
-            let title =localStorage.getItem(key + '_title')
+            let title =localStorage.getItem(key + "_title")
             if (title) {
                 day.classList.add('calendar-day-cookie')
             }
@@ -102,7 +102,7 @@ function popup(e) {
     if (e) {
         e.classList.add("select")
         let key = e.getAttribute('key')
-        let title = localStorage.getItem(key + '_title')
+        let title = localStorage.getItem(key + "_title")
         let desc = localStorage.getItem(key + '_desc')
         let inn = document.querySelector("#noden")
         let idd = document.querySelector("#noded")
@@ -111,7 +111,7 @@ function popup(e) {
     } else {
         let select = document.querySelector(".select")
         let key = select.getAttribute('key')
-        let title = localStorage.getItem(key + '_title')
+        let title = localStorage.getItem(key + "_title")
         if (title) {
             select.classList.add("calendar-day-cookie")
         }
@@ -128,10 +128,12 @@ save.addEventListener("click", () => {
     let inn = document.querySelector("#noden")
     let idd = document.querySelector("#noded")
     let select = document.querySelector(".select")
-    key = select.getAttribute('key')
-    localStorage.setItem(key + "_title",inn.value)
-    localStorage.setItem(key + '_desc',idd.value)
+    let key = select.getAttribute('key');
+    localStorage.setItem(key + "_title",inn.value);
+    localStorage.setItem(key + '_desc',idd.value);
     popup()
+    localStorage.setItem(key + "_title",inn.value);
+    document.getElementById("result").innerHTML = localStorage.getItem(key + "_title");
+
 })
-localStorage.setItem(key + "_title",inn.value);
-document.getElementById("result").innerHTML = localStorage.getItem(key + '_title');
+
